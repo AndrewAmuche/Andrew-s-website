@@ -1,0 +1,370 @@
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sf-menu li {
+	position: relative;
+}
+.sf-menu ul {
+	position: absolute;
+	display: none;
+	top: 100%;
+	left: 0;
+	z-index: 99;
+}
+.sf-menu > li {
+	float: left;
+	padding:0 59px 0 0; 
+}
+.sf-menu li:hover > ul,
+.sf-menu li.sfHover > ul {
+	display: block;
+}
+
+.sf-menu a {
+	display: block;
+	position: relative;
+}
+.sf-menu ul ul {
+	top: 0;
+	left: 100%;
+}
+
+
+/*** DEMO SKIN ***/
+.sf-menu {
+	float: left;
+	margin-bottom: 0;
+}
+.sf-menu ul {
+	box-shadow: 2px 2px 6px rgba(0,0,0,.2);
+	min-width: 12em; /* allow long menu items to determine submenu width */
+	*width: 12em; /* no auto sub width for IE7, see white-space comment below */
+}
+.sf-menu a {
+	border-left: ;
+	border-top: ; /* fallback colour must use full shorthand */
+	border-top: ;
+	padding: 0;
+	text-decoration: none;
+	zoom: 1; /* IE7 */
+}
+.sf-menu a { 
+	display:inline-block; 
+	font-family: 'KelsonSans-Regular';
+	font-size:17px; 
+	line-height:19px; 
+	color:#f3f3f3; 
+	letter-spacing:1.92px;
+	text-transform:uppercase;  
+	margin:0; 
+	padding:0; 
+	position:relative; 
+	transition:all 600ms ease-in-out;
+	
+}
+
+.sf-menu a:hover{ color:#41cbff; }
+.sf-menu a:after{ content:""; position:absolute; width:0; height:2px; background:#41cbff; left:50%; right:50%; bottom:-4px; transition:all 600ms ease-in-out; }
+.sf-menu a:hover:after{ width:100%; left:0; right:0; }
+.sf-menu li.current-menu-item a:after{ width:100%; left:0; right:0; }
+
+.sf-menu a span{
+	padding: 0 20px 0 0;
+	position: relative;
+	top: -3px;
+}
+.sf-menu li {
+	background: ;
+	white-space: nowrap; /* no need for Supersubs plugin */
+	*white-space: normal; /* ...unless you support IE7 (let it wrap) */
+	-webkit-transition: background .2s;
+	transition: background .2s;
+
+}
+.sf-menu li:last-child{ padding-right: 0; }
+.sf-menu ul li {
+	background: #AABDE6;
+}
+.sf-menu ul ul li {
+	background: #9AAEDB;
+}
+.sf-menu li:hover,
+.sf-menu li.sfHover {
+	background: ;
+	/* only transition out, not in */
+	-webkit-transition: none;
+	transition: none;
+}
+
+/*** arrows (for all except IE7) **/
+.sf-arrows .sf-with-ul {
+	padding-right: 2.5em;
+	*padding-right: 1em; /* no CSS arrows for IE7 (lack pseudo-elements) */
+}
+/* styling for both css and generated arrows */
+.sf-arrows .sf-with-ul:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 1em;
+	margin-top: -3px;
+	height: 0;
+	width: 0;
+	/* order of following 3 rules important for fallbacks to work */
+	border: 5px solid transparent;
+	border-top-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */
+	border-top-color: rgba(255,255,255,.5);
+}
+.sf-arrows > li > .sf-with-ul:focus:after,
+.sf-arrows > li:hover > .sf-with-ul:after,
+.sf-arrows > .sfHover > .sf-with-ul:after {
+	border-top-color: white; /* IE8 fallback colour */
+}
+/* styling for right-facing arrows */
+.sf-arrows ul .sf-with-ul:after {
+	margin-top: -5px;
+	margin-right: -3px;
+	border-color: transparent;
+	border-left-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */
+	border-left-color: rgba(255,255,255,.5);
+}
+.sf-arrows ul li > .sf-with-ul:focus:after,
+.sf-arrows ul li:hover > .sf-with-ul:after,
+.sf-arrows ul .sfHover > .sf-with-ul:after {
+	border-left-color: white;
+}
+
+
+
+/************************************************************************************
+MOBILE
+*************************************************************************************/
+
+
+@media screen and (max-width:1199px) {
+.sf-menu > li { padding: 0 45px 0 0; }
+		
+}
+
+
+
+@media screen and (max-width:991px) {
+ 	.sf-menu > li{ width:100%; padding:2px 0 2px 0 ; }
+
+/* nav-wrap */
+        #nav-wrap {
+               
+				border:none;
+				box-shadow:none;
+				border-radius:3px;
+				bottom:0px;
+        }
+ 
+/* menu icon */
+        #menu-icon {
+			background:url(../menu-icon.html) 50% 50% no-repeat; display:block; width:31px; height:31px; text-indent:-9999999em; padding:0; overflow:hidden; cursor:pointer; z-index:1000; position:absolute; top:0; right:0;  
+        }
+		
+.sf-menu > li:hover,
+.sf-menu > li.sfHover {}
+        #menu-icon.active {
+                background:url(../menu-close.html) 50% 50% no-repeat;
+        }
+ 
+/* main nav */
+		.sf-menu ul{display:block!important; visibility:visible!important; background:#2c58a8;}
+        .sf-menu {
+                clear: both;
+                position:absolute;
+                top:78px;
+                width:100%;
+                z-index: 10000;
+                padding: 0 0 0 0;
+                background: #16bff7;        
+                display: none; /* visibility will be toggled with jquery */
+				font-family: 'KelsonSans-Regular';
+				right:0;
+                border-radius: 0 0 3px 3px;
+                
+        }
+        .sf-menu li {
+                clear: both;
+                float: none;
+                margin:0;
+				background:none;
+				border:none;
+				border-bottom: 1px solid #0c2338;
+        }
+        .sf-menu li a span { padding-top: 0; }
+		.sf-menu li ul{ background:none; box-shadow:none;}
+		.sf-menu li a:hover{ color: #fac956; }
+		.sf-menu li:hover{ box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14),0 1px 18px 0 rgba(0,0,0,0.12),0 3px 5px -1px rgba(0,0,0,0.3); -webkit-box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14),0 1px 18px 0 rgba(0,0,0,0.12),0 3px 5px -1px rgba(0,0,0,0.3); -moz-box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14),0 1px 18px 0 rgba(0,0,0,0.12),0 3px 5px -1px rgba(0,0,0,0.3); box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14),0 1px 18px 0 rgba(0,0,0,0.12),0 3px 5px -1px rgba(0,0,0,0.3); -o-box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14),0 1px 18px 0 rgba(0,0,0,0.12),0 3px 5px -1px rgba(0,0,0,0.3); } /* optional */
+	
+		.sf-menu li ul li a{ background:none !important; }
+		.sf-menu li ul li a:hover{ background:none; text-decoration:underline;}
+        .sf-menu a,
+        .sf-menu ul a {
+                background: none;
+				transition: all 300ms ease-in-out;
+				margin:0 0 1px 0;
+				padding:7px 5% !important;
+                display: block;
+				width:100%;
+                color: #fff;
+                border: none;
+				font-size:16px;
+				line-height:18px;
+				height:inherit;
+				text-align: left;
+				
+        }
+        .sf-menu a::after{ background:#fff; }
+		.sf-menu a:hover{ text-decoration:none; }
+        .sf-menu a:hover,
+        .sf-menu > li > a:hover{ text-decoration:none; }
+		.sf-menu a.active {
+               background: none;
+               color: #fac956;
+               
+        }
+ 
+        /* dropdown */
+        .sf-menu ul {
+                width: auto;
+                position: static;
+                display: block;
+                border: none;
+                background: inherit;
+				
+        }
+        .sf-menu ul li {
+                margin: 3px 0 3px 15px;
+        }
+		.sf-menu li ul li a{ background:none; font-size:15px; line-height:17px; padding:3px 10px; } 
+
+
+#menu-icon {
+	  height: 25px;
+	  cursor: pointer;
+	  width: 40px;
+	  position: relative;
+	  overflow: hidden;
+	  
+	}
+	#menu-icon:before, #menu-icon:after {
+	  transition-property: all;
+	  transition-duration: 0.2s;
+	  transition-timing-function: linear;
+	  transition-delay: 0s;
+	  content: '';
+	  display: block;
+	  width: 2px;
+	  height: 28px;
+	  border-radius: 0;
+	  transform-origin: center center;
+	  background-color: #fff;
+	}
+	#menu-icon:before {
+	  position: absolute;
+	  top: 0;
+	  left: 20px;
+	  transform: rotate(-45deg);
+	}
+	#menu-icon:after {
+	  position: absolute;
+	  top: 0;
+	  right: 18px;
+	  transform: rotate(45deg);
+	}
+	#menu-icon .bar {
+	  transition-property: all;
+	  transition-duration: 0.2s;
+	  transition-timing-function: linear;
+	  transition-delay: 0.2s;
+	  width: 100%;
+	  height: 2px;
+	  background-color: #fff;
+	  border-radius:2px !important;
+	}
+	#menu-icon .bar-1 {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width:30px; 
+	}
+	#menu-icon .bar-2 {
+	  position: absolute;
+	  top:7px;
+	  left: 0;
+	  width:30px; 
+	}
+	#menu-icon .bar-3 {
+	  position: absolute;
+	  top:15px;
+	  left: 0;
+	  width:30px; 
+	}
+	#menu-icon.opened .bar {
+	  transition-property: all;
+	  transition-duration: 0.2s;
+	  transition-timing-function: linear;
+	  transition-delay: 0s;
+	}
+	#menu-icon.opened:before, #menu-icon.opened:after {
+	  transition-property: all;
+	  transition-duration: 0.2s;
+	  transition-timing-function: linear;
+	  transition-delay: 0.2s;
+	}
+
+	#menu-icon .bar {
+	  transform-origin: left center; position: relative;
+	}
+	#menu-icon .bar:after{ content: ""; position: absolute; width:2px; height:2px; background:#fff; right:-8px; top:0px;  }
+
+	#menu-icon:before {
+	  transform: scale(0, 0) rotate(-45deg);
+	}
+	#menu-icon:after {
+	  transform: scale(0, 0) rotate(45deg);
+	}
+	#menu-icon:before, #menu-icons:after {
+	  opacity: 0;
+	}
+	#menu-icon.opened:before, #menu-icon.opened:after {
+	  transition-delay: 0.2s;
+	  opacity: 1;
+	}
+	#menu-icon.opened:before {
+	  transform: scale(1) rotate(-45deg);
+	}
+	#menu-icon.opened:after {
+	  transform: scale(1) rotate(45deg);
+	}
+	#menu-icon.opened .bar {
+	  transform: scale(0, 1);
+	}
+	#menu-icon.opened .bar-1 {
+	  transition-delay: 0s;
+	}
+	#menu-icon.opened .bar-2 {
+	  transition-delay: 0.05s;
+	}
+	#menu-icon.opened .bar-3 {
+	  transition-delay: 0.1s;
+	}
+
+}
+
+@media screen and (max-width:767px) {
+.sf-menu{ top: 134px; }
+
+}
+
+@media screen and (max-width:767px) {
+.sf-menu{ top: 129px; }
+
+}
